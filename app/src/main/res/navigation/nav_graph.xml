@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentPieChart">
+    <fragment
+        android:id="@+id/fragmentPieChart"
+        android:name="dev.ronnie.spendingcalculator.FragmentPieChart"
+        android:label="FragmentPieChart">
+        <action
+            android:id="@+id/toFragmentList"
+            app:destination="@id/fragmentSmsList"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/toFragmentSearch"
+            app:destination="@id/fragmentSearch"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSmsList"
+        android:name="dev.ronnie.spendingcalculator.FragmentSmsList"
+        android:label="FragmentSmsList" />
+    <fragment
+        android:id="@+id/fragmentSearch"
+        android:name="dev.ronnie.spendingcalculator.FragmentSearch"
+        android:label="FragmentSearch" />
+</navigation>

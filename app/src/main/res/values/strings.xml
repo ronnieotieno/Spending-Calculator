@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Spending Calculator</string>
+    <string name="click_direction">Click on the Chart to open Debit and Credit SMS</string>
+    <string name="total_expenses">Total Expenses</string>
+    <string name="total_income">Total Income</string>
+    <string name="search_with_tags">Search with Tags</string>
+    <string name="search_tag">Search Tag</string>
+    <string name="amount_debited_or_credited">Ksh %1$s</string>
+    <string name="tag_hint">Tag</string>
+    <string name="add_tag_message">Add a single tag which can be used to locate the message</string>
+    <string name="done_add_tag">DONE</string>
+    <string name="add_tag">Add Tag</string>
+    <string name="edit_tag">Edit Tag</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
