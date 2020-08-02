@@ -29,7 +29,7 @@ navigation between fragments
 ## License
 
  ```
-   Copyright 2019 Ronnie Otieno
+   Copyright 2020 Ronnie Otieno
    
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
