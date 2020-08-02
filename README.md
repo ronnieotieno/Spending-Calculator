@@ -21,7 +21,7 @@ navigation between fragments
 
 ## Contributors
 
-- Thanks to [Collis Gichuki](https://github.com/CollinsGichuki) for the addition of constraint layouts.
+- Thanks to [Collins Gichuki](https://github.com/CollinsGichuki) for the addition of constraint layouts.
 
 ## Screenshots
 |<img src="art/main.jpg" width=200/>|<img src="art/credit.jpg" width=200/>|<img src="art/debit.jpg" width=200/>|<img src="art/search.jpg" width=200/>|
