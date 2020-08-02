@@ -2,15 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <data>
-
-    </data>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
-
 
         <RelativeLayout
             android:id="@+id/toolbar_search"
@@ -22,7 +17,6 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-
             <ImageView
                 android:id="@+id/img"
                 android:layout_width="wrap_content"
@@ -32,7 +26,6 @@
                 android:background="?attr/selectableItemBackground"
                 android:onClick="goBack"
                 android:src="@drawable/ic_back" />
-
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -57,20 +50,12 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:id="@+id/relRecyclerView"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/search_recyclerview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="gone">
-
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/search_recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp" />
-
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:visibility="gone" />
 
         <RelativeLayout
             android:id="@+id/relSearchGlass"
@@ -96,7 +81,6 @@
                 android:textColor="#1C2C38"
                 android:textSize="14sp" />
         </RelativeLayout>
-
 
     </LinearLayout>
 </layout>
