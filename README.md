@@ -10,12 +10,14 @@ The project has all required dependencies in the build.gradle file.
 
 The project uses MVVM architecture pattern.
 
-## Libraries
+## Libraries 
 
 * [AnyChart](https://github.com/AnyChart/AnyChart-Android) - Used for Piechart
 * [Room](https://developer.android.com/training/data-storage/room) - Provides abstraction layer over SQLite
 * [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel/) - Manage UI related data in a lifecycle conscious way and act as a channel between use cases and ui
 * [DataBinding](https://developer.android.com/topic/libraries/data-binding) - support library that allows binding of UI components in layouts to data sources,binds character details and search results to UI
+* [Naviagtion Component](https://developer.android.com/guide/navigation/navigation-getting-started) - Android Jetpack's Navigation component helps in implementing
+navigation between fragments
 
 ## Screenshots
 |<img src="art/main.jpg" width=200/>|<img src="art/credit.jpg" width=200/>|<img src="art/debit.jpg" width=200/>|<img src="art/search.jpg" width=200/>|
