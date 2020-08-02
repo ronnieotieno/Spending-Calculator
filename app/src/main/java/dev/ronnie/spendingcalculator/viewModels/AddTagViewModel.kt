@@ -13,9 +13,9 @@ import kotlinx.coroutines.launch
 
 class AddTagViewModel(private val smsRepository: SmsRepository) : ViewModel() {
 
-    private val statusMessage = MutableLiveData<Event<String>>()
+    private val _message = MutableLiveData<Event<String>>()
     val message: LiveData<Event<String>>
-        get() = statusMessage
+        get() = _message
     var tag: String? = null
     lateinit var id: String
     lateinit var context: Context
@@ -32,10 +32,10 @@ class AddTagViewModel(private val smsRepository: SmsRepository) : ViewModel() {
                 )
             )
             if (newRowId > -1) {
-                statusMessage.value =
+                _message.value =
                     Event("Tag Added Successfully")
             } else {
-                statusMessage.value =
+                _message.value =
                     Event("Error Occurred")
             }
         }

@@ -65,7 +65,6 @@ class FragmentSmsList : Fragment() {
 
     private fun checkIfMessageHasTag(message: Message): String? =
         viewModel.checkIfMessagedHasTag(message.id)
-
     private fun addOrEditClicked(tag: String?, id: String) {
 
         val modalSheet = AddTagModalSheet()
