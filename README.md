@@ -19,6 +19,10 @@ The project uses MVVM architecture pattern.
 * [Navigation Component](https://developer.android.com/guide/navigation/navigation-getting-started) - Android Jetpack's Navigation component helps in implementing
 navigation between fragments
 
+## Contributors
+
+- Thanks to [Collis Gichuki](https://github.com/CollinsGichuki) for the addition of constraint layouts.
+
 ## Screenshots
 |<img src="art/main.jpg" width=200/>|<img src="art/credit.jpg" width=200/>|<img src="art/debit.jpg" width=200/>|<img src="art/search.jpg" width=200/>|
 |:----:|:----:|:----:|:----:|
