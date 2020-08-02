@@ -47,8 +47,6 @@ class FragmentSearch : Fragment() {
             view.findNavController().navigateUp()
         }
 
-
-
         return binding.root
     }
 
