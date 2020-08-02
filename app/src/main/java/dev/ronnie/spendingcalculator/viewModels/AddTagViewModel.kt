@@ -22,7 +22,9 @@ class AddTagViewModel(private val smsRepository: SmsRepository) : ViewModel() {
 
     fun saveTags() {
 
-        if (tag?.trim()?.isEmpty()!!) return
+        if (tag.isNullOrEmpty()) return
+
+        if (tag?.trim()!!.isEmpty()) return
 
         viewModelScope.launch {
             val newRowId = smsRepository.insertTaggedMessageId(
