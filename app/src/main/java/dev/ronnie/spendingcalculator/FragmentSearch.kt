@@ -62,7 +62,7 @@ class FragmentSearch : Fragment() {
 
             adapter.setList(it)
             adapter.notifyDataSetChanged()
-            binding.relRecyclerView.visibility = View.VISIBLE
+            binding.searchRecyclerview.visibility = View.VISIBLE
             binding.relSearchGlass.visibility = View.GONE
         })
     }
