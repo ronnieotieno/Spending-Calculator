@@ -28,6 +28,7 @@ import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.utils.SMS_PERMISSION_REQUEST
 import dev.ronnie.spendingcalculator.viewModels.FragmentPieChartViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class FragmentPieChart : Fragment() {
@@ -101,6 +102,7 @@ class FragmentPieChart : Fragment() {
             })
         }
     }
+
     private fun setPie(smsData: SmsData) {
 
         binding.anyChart.setProgressBar(binding.progress)
@@ -123,35 +125,44 @@ class FragmentPieChart : Fragment() {
             override fun onClick(event: Event) {
 
                 lifecycleScope.launch(Dispatchers.Main) {
-                    val name = event.data["x"].toString()
-
-                    val bundle = Bundle()
-
-                    if (name == "Total Income") {
-
-                        bundle.putParcelableArrayList(
-                            "list",
-                            smsData.creditSmsList as java.util.ArrayList<out Parcelable>
-                        )
-                        bundle.putString("type", "Credit Messages")
-
-                        binding.root.findNavController().navigate(R.id.toFragmentList, bundle)
-
-                    } else {
-                        bundle.putParcelableArrayList(
-                            "list",
-                            smsData.DebitSmsList as java.util.ArrayList<out Parcelable>
-                        )
-                        bundle.putString("type", "Debit Messages")
-
-                        binding.root.findNavController().navigate(R.id.toFragmentList, bundle)
-
-                    }
+                    delay(100)
+                    openFragmentList(smsData, event)
                 }
             }
         })
         pie.data(data)
         binding.anyChart.setChart(pie)
+
+    }
+
+    private fun openFragmentList(
+        smsData: SmsData,
+        event: Event
+    ) {
+        val name = event.data["x"].toString()
+
+        val bundle = Bundle()
+
+        if (name == "Total Income") {
+
+            bundle.putParcelableArrayList(
+                "list",
+                smsData.creditSmsList as java.util.ArrayList<out Parcelable>
+            )
+            bundle.putString("type", "Credit Messages")
+
+            binding.root.findNavController().navigate(R.id.toFragmentList, bundle)
+
+        } else {
+            bundle.putParcelableArrayList(
+                "list",
+                smsData.DebitSmsList as java.util.ArrayList<out Parcelable>
+            )
+            bundle.putString("type", "Debit Messages")
+
+            binding.root.findNavController().navigate(R.id.toFragmentList, bundle)
+
+        }
 
     }
 

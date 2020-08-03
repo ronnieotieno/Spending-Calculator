@@ -24,7 +24,6 @@
                 android:layout_centerVertical="true"
                 android:layout_marginStart="5dp"
                 android:background="?attr/selectableItemBackground"
-                android:onClick="goBack"
                 android:src="@drawable/ic_back" />
 
             <RelativeLayout
@@ -54,7 +53,10 @@
             android:id="@+id/search_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:paddingStart="10dp"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="?attr/actionBarSize"
             android:visibility="gone" />
 
         <RelativeLayout
