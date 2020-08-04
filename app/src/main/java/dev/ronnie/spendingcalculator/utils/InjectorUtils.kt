@@ -1,9 +1,9 @@
 package dev.ronnie.spendingcalculator.utils
 
 import android.content.Context
-import dev.ronnie.spendingcalculator.data.AppDatabase
-import dev.ronnie.spendingcalculator.data.SmsDataSource
-import dev.ronnie.spendingcalculator.data.SmsRepository
+import dev.ronnie.spendingcalculator.data.db.AppDatabase
+import dev.ronnie.spendingcalculator.data.datasource.SmsDataSource
+import dev.ronnie.spendingcalculator.data.repository.SmsRepository
 import dev.ronnie.spendingcalculator.data.dao.TaggedSmsDao
 import dev.ronnie.spendingcalculator.presentation.viewmodels.AddTagViewModelFactory
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentListViewModelFactory

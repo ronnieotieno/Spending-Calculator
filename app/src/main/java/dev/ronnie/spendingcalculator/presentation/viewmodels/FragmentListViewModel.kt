@@ -1,7 +1,7 @@
 package dev.ronnie.spendingcalculator.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
-import dev.ronnie.spendingcalculator.data.SmsRepository
+import dev.ronnie.spendingcalculator.data.repository.SmsRepository
 import kotlinx.coroutines.runBlocking
 
 

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.ronnie.spendingcalculator.data.entities.AddTag
 import dev.ronnie.spendingcalculator.utils.Event
-import dev.ronnie.spendingcalculator.data.SmsRepository
+import dev.ronnie.spendingcalculator.data.repository.SmsRepository
 import kotlinx.coroutines.launch
 
 

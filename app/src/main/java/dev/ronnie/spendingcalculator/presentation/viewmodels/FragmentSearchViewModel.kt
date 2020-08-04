@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.ronnie.spendingcalculator.domain.Message
-import dev.ronnie.spendingcalculator.data.SmsRepository
+import dev.ronnie.spendingcalculator.data.repository.SmsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

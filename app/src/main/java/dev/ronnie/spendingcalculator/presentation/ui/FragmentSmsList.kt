@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import dev.ronnie.spendingcalculator.adapters.MessageAdapter
+import dev.ronnie.spendingcalculator.presentation.adapters.MessageAdapter
 import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.databinding.FragmentSmsListBinding
 import dev.ronnie.spendingcalculator.utils.InjectorUtils

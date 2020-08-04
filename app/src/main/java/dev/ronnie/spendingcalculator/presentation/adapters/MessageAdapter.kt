@@ -1,4 +1,4 @@
-package dev.ronnie.spendingcalculator.adapters
+package dev.ronnie.spendingcalculator.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

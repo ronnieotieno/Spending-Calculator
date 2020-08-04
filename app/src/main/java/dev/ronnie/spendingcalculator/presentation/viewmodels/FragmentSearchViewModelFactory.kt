@@ -2,7 +2,7 @@ package dev.ronnie.spendingcalculator.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import dev.ronnie.spendingcalculator.data.SmsRepository
+import dev.ronnie.spendingcalculator.data.repository.SmsRepository
 
 class FragmentSearchViewModelFactory(
     private val repository: SmsRepository

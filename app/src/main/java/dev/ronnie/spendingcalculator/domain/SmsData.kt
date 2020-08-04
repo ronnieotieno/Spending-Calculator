@@ -12,9 +12,4 @@ data class SmsData(
     val DebitSmsList: List<Message>,
     val TotalCreditedAmount: Double,
     val totalDebitedAmount: Double
-) : Flow<SmsData>, Parcelable {
-    @InternalCoroutinesApi
-    override suspend fun collect(collector: FlowCollector<SmsData>) {
-        TODO("Not yet implemented")
-    }
-}
+) :  Parcelable

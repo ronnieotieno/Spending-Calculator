@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import dev.ronnie.spendingcalculator.adapters.SearchMessageAdapter
+import dev.ronnie.spendingcalculator.presentation.adapters.SearchMessageAdapter
 import dev.ronnie.spendingcalculator.databinding.FragmentSearchBinding
 import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentSearchViewModel

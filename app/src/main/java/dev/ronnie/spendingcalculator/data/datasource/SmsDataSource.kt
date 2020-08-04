@@ -1,4 +1,4 @@
-package dev.ronnie.spendingcalculator.data
+package dev.ronnie.spendingcalculator.data.datasource
 
 import android.content.Context
 import android.database.Cursor
@@ -172,8 +172,13 @@ class SmsDataSource(private val context: Context) {
         private var instance: SmsDataSource? = null
 
         fun getInstance(context: Context) =
-            instance ?: synchronized(this) {
-                instance ?: SmsDataSource(context).also { instance = it }
+            instance
+                ?: synchronized(this) {
+                instance
+                    ?: SmsDataSource(
+                        context
+                    )
+                        .also { instance = it }
             }
     }
 }

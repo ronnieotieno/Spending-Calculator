@@ -1,5 +1,6 @@
-package dev.ronnie.spendingcalculator.data
+package dev.ronnie.spendingcalculator.data.repository
 
+import dev.ronnie.spendingcalculator.data.datasource.SmsDataSource
 import dev.ronnie.spendingcalculator.data.dao.TaggedSmsDao
 import dev.ronnie.spendingcalculator.data.entities.AddTag
 
@@ -20,11 +21,14 @@ class SmsRepository(
         private var instance: SmsRepository? = null
 
         fun getInstance(smsDataSource: SmsDataSource, taggedSmsDao: TaggedSmsDao) =
-            instance ?: synchronized(this) {
-                instance ?: SmsRepository(
-                    smsDataSource,
-                    taggedSmsDao
-                ).also { instance = it }
+            instance
+                ?: synchronized(this) {
+                instance
+                    ?: SmsRepository(
+                        smsDataSource,
+                        taggedSmsDao
+                    )
+                        .also { instance = it }
             }
     }
 }
