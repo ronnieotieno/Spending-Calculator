@@ -1,4 +1,4 @@
-package dev.ronnie.spendingcalculator
+package dev.ronnie.spendingcalculator.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,9 +9,10 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.databinding.AddTagLayoutBinding
 import dev.ronnie.spendingcalculator.utils.InjectorUtils
-import dev.ronnie.spendingcalculator.viewModels.AddTagViewModel
+import dev.ronnie.spendingcalculator.presentation.viewmodels.AddTagViewModel
 
 
 class AddTagModalSheet() : BottomSheetDialogFragment() {

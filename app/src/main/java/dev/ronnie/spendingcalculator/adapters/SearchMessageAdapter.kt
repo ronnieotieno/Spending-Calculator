@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import dev.ronnie.spendingcalculator.data.Message
+import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.databinding.SearchMessageItemBinding
 

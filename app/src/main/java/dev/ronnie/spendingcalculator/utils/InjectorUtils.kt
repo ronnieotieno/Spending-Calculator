@@ -4,8 +4,11 @@ import android.content.Context
 import dev.ronnie.spendingcalculator.data.AppDatabase
 import dev.ronnie.spendingcalculator.data.SmsDataSource
 import dev.ronnie.spendingcalculator.data.SmsRepository
-import dev.ronnie.spendingcalculator.data.TaggedSmsDao
-import dev.ronnie.spendingcalculator.viewModels.*
+import dev.ronnie.spendingcalculator.data.dao.TaggedSmsDao
+import dev.ronnie.spendingcalculator.presentation.viewmodels.AddTagViewModelFactory
+import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentListViewModelFactory
+import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentPieChartViewModelFactory
+import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentSearchViewModelFactory
 
 object InjectorUtils {
 

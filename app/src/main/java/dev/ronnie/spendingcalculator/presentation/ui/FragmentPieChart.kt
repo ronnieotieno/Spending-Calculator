@@ -1,4 +1,4 @@
-package dev.ronnie.spendingcalculator
+package dev.ronnie.spendingcalculator.presentation.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
@@ -21,12 +21,13 @@ import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.anychart.chart.common.listener.Event
 import com.anychart.chart.common.listener.ListenersInterface
-import dev.ronnie.spendingcalculator.data.SmsData
+import dev.ronnie.spendingcalculator.R
+import dev.ronnie.spendingcalculator.domain.SmsData
 import dev.ronnie.spendingcalculator.databinding.FragmentPieChartBinding
 import dev.ronnie.spendingcalculator.utils.EventObject
 import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.utils.SMS_PERMISSION_REQUEST
-import dev.ronnie.spendingcalculator.viewModels.FragmentPieChartViewModel
+import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentPieChartViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

@@ -1,4 +1,4 @@
-package dev.ronnie.spendingcalculator
+package dev.ronnie.spendingcalculator.presentation.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,10 +11,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dev.ronnie.spendingcalculator.adapters.MessageAdapter
-import dev.ronnie.spendingcalculator.data.Message
+import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.databinding.FragmentSmsListBinding
 import dev.ronnie.spendingcalculator.utils.InjectorUtils
-import dev.ronnie.spendingcalculator.viewModels.FragmentListViewModel
+import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentListViewModel
 
 class FragmentSmsList : Fragment() {
     private lateinit var binding: FragmentSmsListBinding
@@ -67,7 +67,8 @@ class FragmentSmsList : Fragment() {
         viewModel.checkIfMessagedHasTag(message.id)
     private fun addOrEditClicked(tag: String?, id: String) {
 
-        val modalSheet = AddTagModalSheet()
+        val modalSheet =
+            AddTagModalSheet()
 
         val bundle = Bundle()
         bundle.putString("id", id)

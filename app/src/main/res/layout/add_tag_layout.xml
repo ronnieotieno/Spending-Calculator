@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="dev.ronnie.spendingcalculator.viewModels.AddTagViewModel" />
+            type="dev.ronnie.spendingcalculator.presentation.viewmodels.AddTagViewModel" />
     </data>
 
     <LinearLayout

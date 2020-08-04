@@ -1,4 +1,4 @@
-package dev.ronnie.spendingcalculator.viewModels
+package dev.ronnie.spendingcalculator.presentation.viewmodels
 
 import androidx.lifecycle.ViewModel
 import dev.ronnie.spendingcalculator.data.SmsRepository

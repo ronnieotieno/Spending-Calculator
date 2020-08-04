@@ -1,4 +1,4 @@
-package dev.ronnie.spendingcalculator.data
+package dev.ronnie.spendingcalculator.domain
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize

@@ -1,4 +1,4 @@
-package dev.ronnie.spendingcalculator.data
+package dev.ronnie.spendingcalculator.data.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

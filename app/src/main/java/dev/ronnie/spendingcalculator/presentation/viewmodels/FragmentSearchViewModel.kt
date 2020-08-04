@@ -1,10 +1,10 @@
-package dev.ronnie.spendingcalculator.viewModels
+package dev.ronnie.spendingcalculator.presentation.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.ronnie.spendingcalculator.data.Message
+import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.data.SmsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -1,11 +1,11 @@
-package dev.ronnie.spendingcalculator.viewModels
+package dev.ronnie.spendingcalculator.presentation.viewmodels
 
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.ronnie.spendingcalculator.data.AddTag
+import dev.ronnie.spendingcalculator.data.entities.AddTag
 import dev.ronnie.spendingcalculator.utils.Event
 import dev.ronnie.spendingcalculator.data.SmsRepository
 import kotlinx.coroutines.launch

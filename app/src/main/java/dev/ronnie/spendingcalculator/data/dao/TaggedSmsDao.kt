@@ -1,9 +1,10 @@
-package dev.ronnie.spendingcalculator.data
+package dev.ronnie.spendingcalculator.data.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import dev.ronnie.spendingcalculator.data.entities.AddTag
 
 @Dao
 interface TaggedSmsDao {

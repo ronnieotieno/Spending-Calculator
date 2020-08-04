@@ -6,7 +6,7 @@
     app:startDestination="@id/fragmentPieChart">
     <fragment
         android:id="@+id/fragmentPieChart"
-        android:name="dev.ronnie.spendingcalculator.FragmentPieChart"
+        android:name="dev.ronnie.spendingcalculator.presentation.ui.FragmentPieChart"
         android:label="FragmentPieChart">
         <action
             android:id="@+id/toFragmentList"
@@ -26,10 +26,10 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentSmsList"
-        android:name="dev.ronnie.spendingcalculator.FragmentSmsList"
+        android:name="dev.ronnie.spendingcalculator.presentation.ui.FragmentSmsList"
         android:label="FragmentSmsList" />
     <fragment
         android:id="@+id/fragmentSearch"
-        android:name="dev.ronnie.spendingcalculator.FragmentSearch"
+        android:name="dev.ronnie.spendingcalculator.presentation.ui.FragmentSearch"
         android:label="FragmentSearch" />
 </navigation>

@@ -1,10 +1,11 @@
-package dev.ronnie.spendingcalculator
+package dev.ronnie.spendingcalculator.presentation.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.core.content.ContextCompat
+import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.utils.Event
 import dev.ronnie.spendingcalculator.utils.EventObject
 import dev.ronnie.spendingcalculator.utils.SMS_PERMISSION_REQUEST

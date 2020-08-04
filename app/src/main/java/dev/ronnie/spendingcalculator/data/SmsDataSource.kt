@@ -7,6 +7,9 @@ import android.provider.Telephony
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import dev.ronnie.spendingcalculator.data.dao.TaggedSmsDao
+import dev.ronnie.spendingcalculator.domain.Message
+import dev.ronnie.spendingcalculator.domain.SmsData
 import java.util.*
 import java.util.regex.Pattern
 
@@ -132,8 +135,8 @@ class SmsDataSource(private val context: Context) {
         for (i in list.indices) {
 
             val myMessage: Uri = Uri.parse("content://sms/")
-            val cr = context.contentResolver
-            val c: Cursor = cr.query(
+            val contentResolver = context.contentResolver
+            val cursor: Cursor = contentResolver.query(
                 myMessage,
                 arrayOf("_id", "address", "date", "body", "read"),
                 "_id = ${list[i].id}",
@@ -141,12 +144,13 @@ class SmsDataSource(private val context: Context) {
                 null
             )!!
 
-            c.moveToFirst()
+            cursor.moveToFirst()
 
-            val number: String = c.getString(c.getColumnIndexOrThrow("address")).toString()
+            val number: String =
+                cursor.getString(cursor.getColumnIndexOrThrow("address")).toString()
 
-            val body: String = c.getString(c.getColumnIndexOrThrow("body")).toString()
-            val date: String = c.getString(c.getColumnIndexOrThrow("date")).toString()
+            val body: String = cursor.getString(cursor.getColumnIndexOrThrow("body")).toString()
+            val date: String = cursor.getString(cursor.getColumnIndexOrThrow("date")).toString()
 
             messageList.add(
                 Message(

@@ -1,4 +1,4 @@
-package dev.ronnie.spendingcalculator
+package dev.ronnie.spendingcalculator.presentation.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dev.ronnie.spendingcalculator.adapters.SearchMessageAdapter
 import dev.ronnie.spendingcalculator.databinding.FragmentSearchBinding
 import dev.ronnie.spendingcalculator.utils.InjectorUtils
-import dev.ronnie.spendingcalculator.viewModels.FragmentSearchViewModel
+import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentSearchViewModel
 
 
 class FragmentSearch : Fragment() {
