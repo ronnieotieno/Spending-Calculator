@@ -16,19 +16,18 @@ class SmsRepository(
         smsDataSource.searchTags(tagString, taggedSmsDao)
 
     companion object {
-
         @Volatile
         private var instance: SmsRepository? = null
 
         fun getInstance(smsDataSource: SmsDataSource, taggedSmsDao: TaggedSmsDao) =
             instance
                 ?: synchronized(this) {
-                instance
-                    ?: SmsRepository(
-                        smsDataSource,
-                        taggedSmsDao
-                    )
-                        .also { instance = it }
-            }
+                    instance
+                        ?: SmsRepository(
+                            smsDataSource,
+                            taggedSmsDao
+                        )
+                            .also { instance = it }
+                }
     }
 }

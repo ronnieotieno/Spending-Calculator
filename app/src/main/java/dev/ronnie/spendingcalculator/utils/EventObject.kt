@@ -7,6 +7,5 @@ object EventObject {
 
     val statusMessage = MutableLiveData<Event<String>>()
 
-    val message: LiveData<Event<String>>
-        get() = statusMessage
+    val message: LiveData<Event<String>> get() = statusMessage
 }

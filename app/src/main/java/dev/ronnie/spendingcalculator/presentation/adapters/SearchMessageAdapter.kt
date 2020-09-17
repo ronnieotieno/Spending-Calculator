@@ -42,7 +42,6 @@ class SearchMessageAdapter(
         holder.binding.body.text = message.body
         holder.binding.name.text = message.number
 
-
     }
 
     inner class MyViewHolder(var binding: SearchMessageItemBinding) :

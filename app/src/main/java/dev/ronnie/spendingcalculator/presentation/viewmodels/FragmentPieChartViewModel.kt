@@ -10,7 +10,7 @@ class FragmentPieChartViewModel(private val smsRepository: SmsRepository) : View
     val sms = smsRepository.getMessages()
 
 
-    fun getFomartedAmount(amount: Double) = formatCurrency(amount)
+    fun getfomartedAmount(amount: Double) = formatCurrency(amount)
 
     private fun formatCurrency(number: Double): String {
         val formatter: NumberFormat = DecimalFormat("#,###")

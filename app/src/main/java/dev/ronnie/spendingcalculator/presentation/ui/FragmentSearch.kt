@@ -59,7 +59,6 @@ class FragmentSearch : Fragment() {
 
     private fun displayListItems() {
         viewModel.messageListLiveData.observe(viewLifecycleOwner, Observer {
-
             adapter.setList(it)
             adapter.notifyDataSetChanged()
             binding.searchRecyclerview.visibility = View.VISIBLE

@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import dev.ronnie.spendingcalculator.data.entities.AddTag
 import dev.ronnie.spendingcalculator.utils.Event
 import dev.ronnie.spendingcalculator.data.repository.SmsRepository
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
@@ -26,7 +27,7 @@ class AddTagViewModel(private val smsRepository: SmsRepository) : ViewModel() {
 
         if (tag?.trim()!!.isEmpty()) return
 
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.Default) {
             val newRowId = smsRepository.insertTaggedMessageId(
                 AddTag(
                     tag!!,

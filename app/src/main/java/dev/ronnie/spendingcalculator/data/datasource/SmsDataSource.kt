@@ -161,7 +161,6 @@ class SmsDataSource(private val context: Context) {
                 )
             )
 
-
         }
         return messageList
     }
@@ -174,11 +173,11 @@ class SmsDataSource(private val context: Context) {
         fun getInstance(context: Context) =
             instance
                 ?: synchronized(this) {
-                instance
-                    ?: SmsDataSource(
-                        context
-                    )
-                        .also { instance = it }
-            }
+                    instance
+                        ?: SmsDataSource(
+                            context
+                        )
+                            .also { instance = it }
+                }
     }
 }
