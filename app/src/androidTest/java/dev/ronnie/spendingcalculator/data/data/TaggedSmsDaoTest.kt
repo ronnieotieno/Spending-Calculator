@@ -30,7 +30,6 @@ class TaggedSmsDaoTest {
         database = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
         taggedSmsDao = database.getTagDao()
 
-
     }
 
     @After
