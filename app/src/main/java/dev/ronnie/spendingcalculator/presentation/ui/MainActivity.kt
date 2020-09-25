@@ -4,15 +4,11 @@ import android.Manifest
 import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.R
-import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentPieChartViewModel
 import dev.ronnie.spendingcalculator.utils.Event
 import dev.ronnie.spendingcalculator.utils.EventObject
-import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.utils.SMS_PERMISSION_REQUEST
 
 @AndroidEntryPoint

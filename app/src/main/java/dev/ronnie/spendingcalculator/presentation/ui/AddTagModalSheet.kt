@@ -12,7 +12,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.databinding.AddTagLayoutBinding
-import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.presentation.viewmodels.AddTagViewModel
 
 @AndroidEntryPoint

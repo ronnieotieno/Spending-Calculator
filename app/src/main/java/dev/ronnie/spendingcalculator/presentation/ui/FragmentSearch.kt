@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.presentation.adapters.SearchMessageAdapter
 import dev.ronnie.spendingcalculator.databinding.FragmentSearchBinding
-import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentSearchViewModel
 
 @AndroidEntryPoint

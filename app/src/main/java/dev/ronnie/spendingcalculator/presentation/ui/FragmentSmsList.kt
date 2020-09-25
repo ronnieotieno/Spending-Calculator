@@ -14,7 +14,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.presentation.adapters.MessageAdapter
 import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.databinding.FragmentSmsListBinding
-import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentListViewModel
 
 @AndroidEntryPoint

@@ -33,8 +33,8 @@ class AddTagViewModelTest() {
         appDatabase = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
         taggedSmsDao = appDatabase.getTagDao()
 
-        smsDataSource = SmsDataSource.getInstance(context)
-        smsRepository = SmsRepository.getInstance(smsDataSource, taggedSmsDao)
+        smsDataSource = SmsDataSource(context)
+        smsRepository = SmsRepository(smsDataSource, taggedSmsDao)
 
         viewModel = AddTagViewModel(smsRepository)
 

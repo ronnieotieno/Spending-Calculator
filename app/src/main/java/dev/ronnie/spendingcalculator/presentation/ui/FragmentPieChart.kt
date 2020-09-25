@@ -26,7 +26,6 @@ import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.domain.SmsData
 import dev.ronnie.spendingcalculator.databinding.FragmentPieChartBinding
 import dev.ronnie.spendingcalculator.utils.EventObject
-import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.utils.SMS_PERMISSION_REQUEST
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentPieChartViewModel
 import kotlinx.coroutines.Dispatchers
