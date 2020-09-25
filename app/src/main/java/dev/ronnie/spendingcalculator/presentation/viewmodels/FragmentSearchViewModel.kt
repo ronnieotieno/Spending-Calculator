@@ -1,5 +1,6 @@
 package dev.ronnie.spendingcalculator.presentation.viewmodels
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -11,7 +12,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class FragmentSearchViewModel(private val smsRepository: SmsRepository) : ViewModel() {
+class FragmentSearchViewModel @ViewModelInject constructor(private val smsRepository: SmsRepository) :
+    ViewModel() {
 
     private var _messageListLiveData: MutableLiveData<List<Message>> = MutableLiveData()
     val messageListLiveData: LiveData<List<Message>> get() = _messageListLiveData

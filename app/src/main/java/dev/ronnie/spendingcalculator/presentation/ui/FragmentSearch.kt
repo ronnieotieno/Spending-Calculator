@@ -11,18 +11,17 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.presentation.adapters.SearchMessageAdapter
 import dev.ronnie.spendingcalculator.databinding.FragmentSearchBinding
 import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentSearchViewModel
 
-
+@AndroidEntryPoint
 class FragmentSearch : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var adapter: SearchMessageAdapter
-    private val viewModel: FragmentSearchViewModel by viewModels {
-        InjectorUtils.provideSearchViewModelFactory(requireContext())
-    }
+    private val viewModel: FragmentSearchViewModel by viewModels ()
 
     override fun onCreateView(
         inflater: LayoutInflater,

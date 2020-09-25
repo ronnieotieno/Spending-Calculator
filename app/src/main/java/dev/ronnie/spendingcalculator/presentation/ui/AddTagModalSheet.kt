@@ -9,19 +9,18 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.databinding.AddTagLayoutBinding
 import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.presentation.viewmodels.AddTagViewModel
 
-
+@AndroidEntryPoint
 class AddTagModalSheet() : BottomSheetDialogFragment() {
 
     private lateinit var binding: AddTagLayoutBinding
 
-    private val viewModel: AddTagViewModel by viewModels {
-        InjectorUtils.provideAddTagViewModelFactory(requireContext())
-    }
+    private val viewModel: AddTagViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

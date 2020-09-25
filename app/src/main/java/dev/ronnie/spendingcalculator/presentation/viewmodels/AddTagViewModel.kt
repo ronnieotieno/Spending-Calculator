@@ -1,6 +1,7 @@
 package dev.ronnie.spendingcalculator.presentation.viewmodels
 
 import android.content.Context
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,9 +11,11 @@ import dev.ronnie.spendingcalculator.utils.Event
 import dev.ronnie.spendingcalculator.data.repository.SmsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
-class AddTagViewModel(private val smsRepository: SmsRepository) : ViewModel() {
+class AddTagViewModel @ViewModelInject constructor(private val smsRepository: SmsRepository) :
+    ViewModel() {
 
     private val _message = MutableLiveData<Event<String>>()
     val message: LiveData<Event<String>>
@@ -34,12 +37,14 @@ class AddTagViewModel(private val smsRepository: SmsRepository) : ViewModel() {
                     id
                 )
             )
-            if (newRowId > -1) {
-                _message.value =
-                    Event("Tag Added Successfully")
-            } else {
-                _message.value =
-                    Event("Error Occurred")
+            withContext(Dispatchers.Main) {
+                if (newRowId > -1) {
+                    _message.value =
+                        Event("Tag Added Successfully")
+                } else {
+                    _message.value =
+                        Event("Error Occurred")
+                }
             }
         }
 

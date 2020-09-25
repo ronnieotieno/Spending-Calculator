@@ -10,17 +10,17 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.presentation.adapters.MessageAdapter
 import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.databinding.FragmentSmsListBinding
 import dev.ronnie.spendingcalculator.utils.InjectorUtils
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentListViewModel
 
+@AndroidEntryPoint
 class FragmentSmsList : Fragment() {
     private lateinit var binding: FragmentSmsListBinding
-    private val viewModel: FragmentListViewModel by viewModels {
-        InjectorUtils.provideFragmentListViewModelFactory(requireContext())
-    }
+    private val viewModel: FragmentListViewModel by viewModels ()
 
 
     override fun onCreateView(

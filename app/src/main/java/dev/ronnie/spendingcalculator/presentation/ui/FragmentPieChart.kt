@@ -21,6 +21,7 @@ import com.anychart.chart.common.dataentry.DataEntry
 import com.anychart.chart.common.dataentry.ValueDataEntry
 import com.anychart.chart.common.listener.Event
 import com.anychart.chart.common.listener.ListenersInterface
+import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.domain.SmsData
 import dev.ronnie.spendingcalculator.databinding.FragmentPieChartBinding
@@ -32,14 +33,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class FragmentPieChart : Fragment() {
 
     private lateinit var binding: FragmentPieChartBinding
     private lateinit var smsData: SmsData
-    private val viewModel: FragmentPieChartViewModel by viewModels {
-        InjectorUtils.provideFragmentPieViewModelFactory(requireContext())
-    }
-
+    private val viewModel: FragmentPieChartViewModel by viewModels ()
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -12,8 +12,11 @@ import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.domain.SmsData
 import java.util.*
 import java.util.regex.Pattern
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class SmsDataSource(private val context: Context) {
+@Singleton
+class SmsDataSource @Inject constructor(private val context: Context) {
     private val creditList = arrayListOf<Message>()
     private val debitList = arrayListOf<Message>()
     private var creditAmount = 0.0
@@ -134,50 +137,40 @@ class SmsDataSource(private val context: Context) {
         Log.d("ListHere", list.toString())
         for (i in list.indices) {
 
-            val myMessage: Uri = Uri.parse("content://sms/")
-            val contentResolver = context.contentResolver
-            val cursor: Cursor = contentResolver.query(
-                myMessage,
-                arrayOf("_id", "address", "date", "body", "read"),
-                "_id = ${list[i].id}",
-                null,
-                null
-            )!!
+            try {
 
-            cursor.moveToFirst()
+                val myMessage: Uri = Uri.parse("content://sms/")
+                val contentResolver = context.contentResolver
+                val cursor: Cursor = contentResolver.query(
+                    myMessage,
+                    arrayOf("_id", "address", "date", "body", "read"),
+                    "_id = ${list[i].id}",
+                    null,
+                    null
+                )!!
 
-            val number: String =
-                cursor.getString(cursor.getColumnIndexOrThrow("address")).toString()
+                cursor.moveToFirst()
 
-            val body: String = cursor.getString(cursor.getColumnIndexOrThrow("body")).toString()
-            val date: String = cursor.getString(cursor.getColumnIndexOrThrow("date")).toString()
+                val number: String =
+                    cursor.getString(cursor.getColumnIndexOrThrow("address")).toString()
 
-            messageList.add(
-                Message(
-                    number,
-                    body,
-                    Date(date.toLong()),
-                    list[i].id
+                val body: String = cursor.getString(cursor.getColumnIndexOrThrow("body")).toString()
+                val date: String = cursor.getString(cursor.getColumnIndexOrThrow("date")).toString()
+
+                messageList.add(
+                    Message(
+                        number,
+                        body,
+                        Date(date.toLong()),
+                        list[i].id
+                    )
                 )
-            )
 
+            } catch (t: Throwable) {
+
+            }
         }
         return messageList
     }
 
-    companion object {
-
-        @Volatile
-        private var instance: SmsDataSource? = null
-
-        fun getInstance(context: Context) =
-            instance
-                ?: synchronized(this) {
-                    instance
-                        ?: SmsDataSource(
-                            context
-                        )
-                            .also { instance = it }
-                }
-    }
 }
