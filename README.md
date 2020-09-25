@@ -1,3 +1,6 @@
+<a href="https://www.codacy.com/manual/odaridavid/Clean-MVVM-ArchComponents?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ronnieotieno/Spending-Calculator-MVVM-Clean-Architecture&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/e9536c1df39b482b863f152654e14fa5"/></a>
+</p>
+
 # Spending-Calculator-MVVM-Clean-Architecture-Dagger-Hilt
 
 The App reads the user sms, take notes of transactional sms and create total income and total expenses in a pie chart. The users can also add tag to the messages for future refference. Currently the app is only able to detect Kenyan and Indian currencies.
