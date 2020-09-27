@@ -133,6 +133,7 @@ class SmsDataSource @Inject constructor(private val context: Context) {
     suspend fun searchTags(tagString: String, taggedSmsDao: TaggedSmsDao): List<Message> {
         val messageList = ArrayList<Message>()
         val list = taggedSmsDao.getTags(tagString)
+        var cursor: Cursor?
 
         Log.d("ListHere", list.toString())
         for (i in list.indices) {
@@ -141,21 +142,25 @@ class SmsDataSource @Inject constructor(private val context: Context) {
 
                 val myMessage: Uri = Uri.parse("content://sms/")
                 val contentResolver = context.contentResolver
-                val cursor: Cursor = contentResolver.query(
+                cursor = contentResolver.query(
                     myMessage,
                     arrayOf("_id", "address", "date", "body", "read"),
                     "_id = ${list[i].id}",
                     null,
                     null
-                )!!
+                )
 
-                cursor.moveToFirst()
+
+                cursor?.moveToFirst()
 
                 val number: String =
-                    cursor.getString(cursor.getColumnIndexOrThrow("address")).toString()
+                    cursor?.getString(cursor.getColumnIndexOrThrow("address")).toString()
 
-                val body: String = cursor.getString(cursor.getColumnIndexOrThrow("body")).toString()
-                val date: String = cursor.getString(cursor.getColumnIndexOrThrow("date")).toString()
+                val body: String =
+                    cursor?.getString(cursor.getColumnIndexOrThrow("body")).toString()
+                val date: String =
+                    cursor?.getString(cursor.getColumnIndexOrThrow("date")).toString()
+                cursor?.close()
 
                 messageList.add(
                     Message(
@@ -166,10 +171,12 @@ class SmsDataSource @Inject constructor(private val context: Context) {
                     )
                 )
 
+
             } catch (t: Throwable) {
 
             }
         }
+
         return messageList
     }
 

@@ -15,5 +15,7 @@ interface TaggedSmsDao {
     suspend fun getTags(tag: String): List<AddTag>
 
     @Query("SELECT * FROM tags WHERE id = :id")
+
     suspend fun getTagsWithId(id: String): AddTag?
+
 }

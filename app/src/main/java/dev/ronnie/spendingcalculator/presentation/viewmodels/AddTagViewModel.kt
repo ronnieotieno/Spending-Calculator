@@ -14,8 +14,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class AddTagViewModel @ViewModelInject constructor(private val smsRepository: SmsRepository) :
-    ViewModel() {
+class AddTagViewModel @ViewModelInject constructor(private val smsRepository: SmsRepository) : ViewModel() {
 
     private val _message = MutableLiveData<Event<String>>()
     val message: LiveData<Event<String>>

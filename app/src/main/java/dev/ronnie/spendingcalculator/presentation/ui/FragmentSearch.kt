@@ -7,6 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
+import androidx.annotation.MainThread
+import androidx.annotation.WorkerThread
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -20,7 +22,7 @@ import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentSearchViewM
 class FragmentSearch : Fragment() {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var adapter: SearchMessageAdapter
-    private val viewModel: FragmentSearchViewModel by viewModels ()
+    private val viewModel: FragmentSearchViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

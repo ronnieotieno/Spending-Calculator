@@ -37,7 +37,7 @@ class FragmentPieChart : Fragment() {
 
     private lateinit var binding: FragmentPieChartBinding
     private lateinit var smsData: SmsData
-    private val viewModel: FragmentPieChartViewModel by viewModels ()
+    private val viewModel: FragmentPieChartViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -53,10 +53,15 @@ class FragmentPieChart : Fragment() {
         (activity as AppCompatActivity).supportActionBar!!.title = "Transactions"
 
 
-        getSmsPermission()
 
 
         return binding.root
+    }
+
+    override fun onResume() {
+        getSmsPermission()
+
+        super.onResume()
     }
 
     private fun getSmsPermission() {
@@ -132,6 +137,11 @@ class FragmentPieChart : Fragment() {
         pie.data(data)
         binding.anyChart.setChart(pie)
 
+    }
+
+    override fun onPause() {
+        binding.anyChart.clear()
+        super.onPause()
     }
 
     private fun openFragmentList(

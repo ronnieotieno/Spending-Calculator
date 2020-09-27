@@ -41,7 +41,7 @@ class MessageAdapter(
 
         val tag = checkIfMessageHasTag(message)
 
-        if (tag != null) {
+        tag?.let {
             holder.binding.addTag.text = holder.binding.root.context.getString(R.string.edit_tag)
         }
 

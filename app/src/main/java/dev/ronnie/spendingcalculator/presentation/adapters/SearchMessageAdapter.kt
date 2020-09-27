@@ -11,8 +11,7 @@ import dev.ronnie.spendingcalculator.databinding.SearchMessageItemBinding
 
 class SearchMessageAdapter(
 
-) :
-    RecyclerView.Adapter<SearchMessageAdapter.MyViewHolder>() {
+) : RecyclerView.Adapter<SearchMessageAdapter.MyViewHolder>() {
 
     private var list: ArrayList<Message> = arrayListOf()
 
