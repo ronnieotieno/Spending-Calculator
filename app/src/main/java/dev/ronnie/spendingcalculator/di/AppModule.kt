@@ -16,7 +16,6 @@ import javax.inject.Singleton
 @InstallIn(ApplicationComponent::class)
 @Module
 object AppModule {
-
     @Provides
     @Singleton
     fun provideTaggedSmsDao(@ApplicationContext appContext: Context): TaggedSmsDao {
@@ -25,17 +24,6 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideSmsDataSource(@ApplicationContext appContext: Context): SmsDataSource {
-        return SmsDataSource(appContext)
-    }
-
-    @Provides
-    @Singleton
-    fun provideSmsRepository(
-        taggedSmsDao: TaggedSmsDao,
-        smsDataSource: SmsDataSource
-    ): SmsRepository {
-        return SmsRepository(smsDataSource, taggedSmsDao)
-    }
+    fun provideContext(@ApplicationContext appContext: Context): Context = appContext.applicationContext
 
 }

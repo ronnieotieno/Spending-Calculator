@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.ronnie.spendingcalculator.data.entities.AddTag
+import dev.ronnie.spendingcalculator.data.entities.Tag
 import dev.ronnie.spendingcalculator.utils.Event
 import dev.ronnie.spendingcalculator.data.repository.SmsRepository
 import kotlinx.coroutines.Dispatchers
@@ -31,7 +31,7 @@ class AddTagViewModel @ViewModelInject constructor(private val smsRepository: Sm
 
         viewModelScope.launch(Dispatchers.Default) {
             val newRowId = smsRepository.insertTaggedMessageId(
-                AddTag(
+                Tag(
                     tag!!,
                     id
                 )

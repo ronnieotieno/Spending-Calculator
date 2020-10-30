@@ -1,16 +1,14 @@
 package dev.ronnie.spendingcalculator.data.viewModels
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.ViewModel
 import androidx.room.Room
 import androidx.test.espresso.matcher.ViewMatchers.assertThat
 import androidx.test.platform.app.InstrumentationRegistry
 import dev.ronnie.spendingcalculator.data.dao.TaggedSmsDao
 import dev.ronnie.spendingcalculator.data.datasource.SmsDataSource
 import dev.ronnie.spendingcalculator.data.db.AppDatabase
-import dev.ronnie.spendingcalculator.data.entities.AddTag
+import dev.ronnie.spendingcalculator.data.entities.Tag
 import dev.ronnie.spendingcalculator.data.repository.SmsRepository
-import dev.ronnie.spendingcalculator.presentation.viewmodels.AddTagViewModel
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentListViewModel
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.equalTo
@@ -53,7 +51,7 @@ class FragmentListViewModelTest() {
     @Test
     fun checkIfMessagedHasTag() = runBlocking {
 
-        val addTag = AddTag("New Test", "newIdAgain")
+        val addTag = Tag("New Test", "newIdAgain")
 
         taggedSmsDao.insertTag(addTag)
 

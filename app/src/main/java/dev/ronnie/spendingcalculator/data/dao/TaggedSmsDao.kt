@@ -4,18 +4,18 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import dev.ronnie.spendingcalculator.data.entities.AddTag
+import dev.ronnie.spendingcalculator.data.entities.Tag
 
 @Dao
 interface TaggedSmsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertTag(addTag: AddTag): Long
+    suspend fun insertTag(tag: Tag): Long
 
     @Query("SELECT * FROM tags WHERE tag  LIKE '%' || :tag || '%'")
-    suspend fun getTags(tag: String): List<AddTag>
+    suspend fun getTags(tag: String): List<Tag>
 
     @Query("SELECT * FROM tags WHERE id = :id")
 
-    suspend fun getTagsWithId(id: String): AddTag?
+    suspend fun getTagsWithId(id: String): Tag?
 
 }

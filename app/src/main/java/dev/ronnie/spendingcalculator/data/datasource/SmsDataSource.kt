@@ -7,6 +7,7 @@ import android.provider.Telephony
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.ronnie.spendingcalculator.data.dao.TaggedSmsDao
 import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.domain.SmsData

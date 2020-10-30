@@ -8,13 +8,8 @@ import androidx.test.platform.app.InstrumentationRegistry
 import dev.ronnie.spendingcalculator.data.dao.TaggedSmsDao
 import dev.ronnie.spendingcalculator.data.datasource.SmsDataSource
 import dev.ronnie.spendingcalculator.data.db.AppDatabase
-import dev.ronnie.spendingcalculator.data.entities.AddTag
 import dev.ronnie.spendingcalculator.data.repository.SmsRepository
-import dev.ronnie.spendingcalculator.data.testUtils.addTag1
-import dev.ronnie.spendingcalculator.data.testUtils.addTag2
 import dev.ronnie.spendingcalculator.data.testUtils.getValue
-import dev.ronnie.spendingcalculator.presentation.ui.FragmentPieChart
-import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentListViewModel
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentPieChartViewModel
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.equalTo
@@ -22,8 +17,6 @@ import org.junit.After
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
-import java.text.DecimalFormat
-import java.text.NumberFormat
 
 class FragmentPieChartViewModelTest : ViewModel() {
 

@@ -1,9 +1,9 @@
 package dev.ronnie.spendingcalculator.data.testUtils
 
-import dev.ronnie.spendingcalculator.data.entities.AddTag
+import dev.ronnie.spendingcalculator.data.entities.Tag
 
 
-val addTag1 = AddTag("New Test Message", "Test Id One")
-val addTag2 = AddTag("new Tag", "Test Id two")
-val addTag3 = AddTag("testTag", "testId")
+val addTag1 = Tag("New Test Message", "Test Id One")
+val addTag2 = Tag("new Tag", "Test Id two")
+val addTag3 = Tag("testTag", "testId")
 
