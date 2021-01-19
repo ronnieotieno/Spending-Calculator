@@ -12,4 +12,4 @@ data class SmsData(
     val DebitSmsList: List<Message>,
     val TotalCreditedAmount: Double,
     val totalDebitedAmount: Double
-) :  Parcelable
+) : Parcelable

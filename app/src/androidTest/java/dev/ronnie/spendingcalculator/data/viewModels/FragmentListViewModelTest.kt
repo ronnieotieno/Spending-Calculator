@@ -33,7 +33,7 @@ class FragmentListViewModelTest() {
     fun setUp() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         appDatabase = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
-        taggedSmsDao = appDatabase.getTagDao()
+        taggedSmsDao = appDatabase.taggedSmsDao
 
         smsDataSource = SmsDataSource(context)
         smsRepository = SmsRepository(smsDataSource, taggedSmsDao)

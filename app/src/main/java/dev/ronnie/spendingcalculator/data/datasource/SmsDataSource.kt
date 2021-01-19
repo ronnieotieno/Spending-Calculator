@@ -5,7 +5,6 @@ import android.database.Cursor
 import android.net.Uri
 import android.provider.Telephony
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dev.ronnie.spendingcalculator.data.dao.TaggedSmsDao
@@ -17,13 +16,14 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class SmsDataSource @Inject constructor(private val context: Context) {
+class SmsDataSource @Inject constructor(@ApplicationContext val context: Context) {
     private val creditList = arrayListOf<Message>()
     private val debitList = arrayListOf<Message>()
     private var creditAmount = 0.0
     private var debitAmount = 0.0
+    val smsLiveData = MutableLiveData<SmsData>()
 
-    fun getSms(): LiveData<SmsData> {
+    fun getSms() {
         val messageList = arrayListOf<Message>()
 
         val cursor =
@@ -48,20 +48,15 @@ class SmsDataSource @Inject constructor(private val context: Context) {
 
         cursor?.close()
 
-        for (message in messageList) {
-
+        messageList.forEach { message ->
             checkIfMessageIsTransactional(message)
         }
-
-        val smsLiveData = MutableLiveData<SmsData>()
         smsLiveData.value = SmsData(
             creditList,
             debitList,
             creditAmount,
             debitAmount
         )
-
-        return smsLiveData
     }
 
     private fun checkIfMessageIsTransactional(message: Message) {

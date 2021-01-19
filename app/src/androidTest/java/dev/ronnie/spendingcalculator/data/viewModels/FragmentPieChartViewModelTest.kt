@@ -9,7 +9,6 @@ import dev.ronnie.spendingcalculator.data.dao.TaggedSmsDao
 import dev.ronnie.spendingcalculator.data.datasource.SmsDataSource
 import dev.ronnie.spendingcalculator.data.db.AppDatabase
 import dev.ronnie.spendingcalculator.data.repository.SmsRepository
-import dev.ronnie.spendingcalculator.data.testUtils.getValue
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentPieChartViewModel
 import kotlinx.coroutines.runBlocking
 import org.hamcrest.CoreMatchers.equalTo
@@ -33,7 +32,7 @@ class FragmentPieChartViewModelTest : ViewModel() {
     fun setUp() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         appDatabase = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
-        taggedSmsDao = appDatabase.getTagDao()
+        taggedSmsDao = appDatabase.taggedSmsDao
 
         smsDataSource = SmsDataSource(context)
         smsRepository = SmsRepository(smsDataSource, taggedSmsDao)
@@ -48,19 +47,10 @@ class FragmentPieChartViewModelTest : ViewModel() {
         appDatabase.close()
     }
 
-    @Test
-    fun getTaggedMessages() = runBlocking {
-
-        ViewMatchers.assertThat(
-            getValue(viewModel.sms).creditSmsList[0],
-            equalTo(getValue(smsDataSource.getSms()).creditSmsList[0])
-        )
-
-    }
 
     @Test
     fun testNumberFormat() = runBlocking {
-        val testFormat = viewModel.getfomartedAmount(20000.00)
+        val testFormat = viewModel.getformatedAmount(20000.00)
         ViewMatchers.assertThat(
             testFormat,
             equalTo("20,000.00")

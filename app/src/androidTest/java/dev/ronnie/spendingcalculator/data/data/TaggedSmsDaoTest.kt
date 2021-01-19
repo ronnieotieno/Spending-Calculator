@@ -20,7 +20,6 @@ class TaggedSmsDaoTest {
     private lateinit var database: AppDatabase
     private lateinit var taggedSmsDao: TaggedSmsDao
 
-
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
@@ -28,7 +27,7 @@ class TaggedSmsDaoTest {
     fun createDb() = runBlocking {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         database = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java).build()
-        taggedSmsDao = database.getTagDao()
+        taggedSmsDao = database.taggedSmsDao
 
     }
 
@@ -39,8 +38,8 @@ class TaggedSmsDaoTest {
 
     @Test
     fun testGetTagsSize() = runBlocking {
-        database.getTagDao().insertTag(addTag1)
-        database.getTagDao().insertTag(addTag2)
+        database.taggedSmsDao.insertTag(addTag1)
+        database.taggedSmsDao.insertTag(addTag2)
 
         ViewMatchers.assertThat(taggedSmsDao.getTags("new").size, equalTo(2))
     }
@@ -48,7 +47,7 @@ class TaggedSmsDaoTest {
     @Test
     fun testGetTags() = runBlocking {
 
-        database.getTagDao().insertTag(addTag3)
+        database.taggedSmsDao.insertTag(addTag3)
         ViewMatchers.assertThat(taggedSmsDao.getTags("testTag")[0], equalTo(addTag3))
 
     }
@@ -56,12 +55,11 @@ class TaggedSmsDaoTest {
     @Test
     fun testGetTagsWithId() = runBlocking {
 
-        database.getTagDao().insertTag(addTag3)
+        database.taggedSmsDao.insertTag(addTag3)
 
         ViewMatchers.assertThat(taggedSmsDao.getTagsWithId("testId"), equalTo(addTag3))
 
     }
-
 
 
 }

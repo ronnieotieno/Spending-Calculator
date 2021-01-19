@@ -16,7 +16,7 @@ import dev.ronnie.spendingcalculator.utils.DATABASE_NAME
 
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun getTagDao(): TaggedSmsDao
+    abstract val taggedSmsDao: TaggedSmsDao
 
     companion object {
 

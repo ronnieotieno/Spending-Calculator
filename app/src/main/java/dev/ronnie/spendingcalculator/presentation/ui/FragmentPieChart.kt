@@ -112,11 +112,11 @@ class FragmentPieChart : Fragment() {
         binding.anyChart.setProgressBar(binding.progress)
         binding.creditAmount.text = requireContext().getString(
             R.string.amount_debited_or_credited,
-            viewModel.getfomartedAmount(smsData.TotalCreditedAmount)
+            viewModel.getformatedAmount(smsData.TotalCreditedAmount)
         )
         binding.debitAmount.text = requireContext().getString(
             R.string.amount_debited_or_credited,
-            viewModel.getfomartedAmount(smsData.totalDebitedAmount)
+            viewModel.getformatedAmount(smsData.totalDebitedAmount)
         )
 
         val data = ArrayList<DataEntry>()

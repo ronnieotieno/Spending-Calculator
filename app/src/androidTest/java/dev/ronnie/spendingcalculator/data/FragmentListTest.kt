@@ -45,21 +45,21 @@ class FragmentListTest {
             creditSmsList.add(Message("0707745858", "Test Message 2", Date(), "2"))
             creditSmsList.add(Message("0705745858", "Test Message 3", Date(), "3"))
             creditSmsList.add(Message("0705745858", "Test Message 4", Date(), "4"))
-            activityTestRule.activity.apply {
 
-                // Espresso.onView(withId(R.id.fragmentPieChart)).perform(ViewActions.click())
-                runOnUiThread {
-                    val bundle = Bundle()
-                    bundle.putParcelableArrayList(
-                        "list",
-                        creditSmsList as java.util.ArrayList<out Parcelable>
-                    )
-                    bundle.putString("type", "Credit Messages")
 
-                    findNavController(R.id.nav_host).navigate(R.id.toFragmentList, bundle)
+            // Espresso.onView(withId(R.id.fragmentPieChart)).perform(ViewActions.click())
+            runOnUiThread {
+                val bundle = Bundle()
+                bundle.putParcelableArrayList(
+                    "list",
+                    creditSmsList as java.util.ArrayList<out Parcelable>
+                )
+                bundle.putString("type", "Credit Messages")
 
-                }
+                findNavController(R.id.nav_host).navigate(R.id.toFragmentList, bundle)
+
             }
+
         }
 
 

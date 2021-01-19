@@ -8,5 +8,4 @@ data class Tag(
     val tag: String,
     @PrimaryKey(autoGenerate = false)
     val id: String
-) {
-}
+)
