@@ -1,5 +1,3 @@
-
-
 package dev.ronnie.spendingcalculator.utils
 
 /**
@@ -7,3 +5,4 @@ package dev.ronnie.spendingcalculator.utils
  */
 const val DATABASE_NAME = "Tags.db"
 const val SMS_PERMISSION_REQUEST = 101
+

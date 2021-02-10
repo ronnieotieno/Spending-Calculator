@@ -5,8 +5,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dev.ronnie.spendingcalculator.data.entities.Tag
 import dev.ronnie.spendingcalculator.data.repository.SmsRepository
-import dev.ronnie.spendingcalculator.domain.Message
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -15,16 +15,16 @@ import kotlinx.coroutines.withContext
 class FragmentSearchViewModel @ViewModelInject constructor(private val smsRepository: SmsRepository) :
     ViewModel() {
 
-    private var _messageListLiveData: MutableLiveData<List<Message>> = MutableLiveData()
-    val messageListLiveData: LiveData<List<Message>> get() = _messageListLiveData
+    private var _tagListLiveData: MutableLiveData<List<Tag>> = MutableLiveData()
+    val tagListLiveData: LiveData<List<Tag>> get() = _tagListLiveData
 
     fun getTaggedMessages(tagString: String) {
 
         viewModelScope.launch {
-            val messageList = smsRepository.getTaggedMessagesFromId(tagString)
+            val messageList = smsRepository.getTaggedMessages(tagString)
 
             withContext(Dispatchers.Main) {
-                _messageListLiveData.value = messageList
+                _tagListLiveData.value = messageList
             }
         }
 

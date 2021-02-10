@@ -12,6 +12,7 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.databinding.AddTagLayoutBinding
+import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.presentation.viewmodels.AddTagViewModel
 
 @AndroidEntryPoint
@@ -25,7 +26,7 @@ class AddTagModalSheet() : BottomSheetDialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = AddTagLayoutBinding.inflate(inflater, container, false)
         context ?: return binding.root
@@ -33,13 +34,13 @@ class AddTagModalSheet() : BottomSheetDialogFragment() {
         binding.viewModel = viewModel
 
         val bundle = this.arguments
-        val id = bundle!!.getString("id")
+        val message = bundle!!.getParcelable<Message>("message")
         val tag = bundle.getString("tag")
-        viewModel.id = id!!
+        viewModel.message = message
 
         if (tag != null) viewModel.tag = tag
 
-        viewModel.message.observe(viewLifecycleOwner, Observer {
+        viewModel.tagAdded.observe(viewLifecycleOwner, Observer {
             it.getContentIfNotHandled()?.let { message ->
                 Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
                 dialog?.dismiss()

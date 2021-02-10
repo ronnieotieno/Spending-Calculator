@@ -2,8 +2,8 @@ package dev.ronnie.spendingcalculator.presentation.ui
 
 import android.Manifest
 import android.content.pm.PackageManager
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import dagger.hilt.android.AndroidEntryPoint
 import dev.ronnie.spendingcalculator.R

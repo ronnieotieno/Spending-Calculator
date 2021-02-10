@@ -17,7 +17,7 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
-class TagViewModelTest() {
+class TagViewModelTest {
     private lateinit var appDatabase: AppDatabase
     private lateinit var smsRepository: SmsRepository
     private lateinit var smsDataSource: SmsDataSource

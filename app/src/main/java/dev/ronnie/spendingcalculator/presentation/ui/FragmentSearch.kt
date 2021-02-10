@@ -1,37 +1,32 @@
 package dev.ronnie.spendingcalculator.presentation.ui
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
-import androidx.annotation.MainThread
-import androidx.annotation.WorkerThread
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
-import dev.ronnie.spendingcalculator.presentation.adapters.SearchMessageAdapter
+import dagger.hilt.android.scopes.ActivityRetainedScoped
+import dagger.hilt.android.scopes.ActivityScoped
+import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.databinding.FragmentSearchBinding
+import dev.ronnie.spendingcalculator.presentation.adapters.SearchMessageAdapter
 import dev.ronnie.spendingcalculator.presentation.viewmodels.FragmentSearchViewModel
 
 @AndroidEntryPoint
-class FragmentSearch : Fragment() {
+@ActivityScoped
+class FragmentSearch : Fragment(R.layout.fragment_search) {
     private lateinit var binding: FragmentSearchBinding
     private lateinit var adapter: SearchMessageAdapter
     private val viewModel: FragmentSearchViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        binding = FragmentSearchBinding.inflate(inflater, container, false)
-        context ?: return binding.root
+        binding = FragmentSearchBinding.bind(view)
 
         initRecyclerView()
 
@@ -46,8 +41,6 @@ class FragmentSearch : Fragment() {
         binding.img.setOnClickListener { view ->
             view.findNavController().navigateUp()
         }
-
-        return binding.root
     }
 
     private fun initRecyclerView() {
@@ -58,8 +51,8 @@ class FragmentSearch : Fragment() {
     }
 
     private fun displayListItems() {
-        viewModel.messageListLiveData.observe(viewLifecycleOwner, Observer {
-            adapter.setList(it)
+        viewModel.tagListLiveData.observe(viewLifecycleOwner, { tags ->
+            adapter.setList(tags.map { it.message })
             adapter.notifyDataSetChanged()
             binding.searchRecyclerview.visibility = View.VISIBLE
             binding.relSearchGlass.visibility = View.GONE

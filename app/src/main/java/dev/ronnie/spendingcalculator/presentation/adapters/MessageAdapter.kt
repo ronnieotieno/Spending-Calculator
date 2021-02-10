@@ -4,15 +4,15 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
-import dev.ronnie.spendingcalculator.domain.Message
 import dev.ronnie.spendingcalculator.R
 import dev.ronnie.spendingcalculator.databinding.MessageItemBinding
+import dev.ronnie.spendingcalculator.domain.Message
 
 
 class MessageAdapter(
 
     private var list: ArrayList<Message>,
-    private val clickListener: (String?, String) -> Unit,
+    private val clickListener: (String?, Message) -> Unit,
     private val checkIfMessageHasTag: (Message) -> String?
 
 ) :
@@ -46,7 +46,7 @@ class MessageAdapter(
         }
 
         holder.tag = tag
-        holder.id = message.id
+        holder.message = message
 
     }
 
@@ -54,11 +54,11 @@ class MessageAdapter(
         RecyclerView.ViewHolder(binding.root) {
 
         var tag: String? = null
-        var id: String? = null
+        var message: Message? = null
 
         init {
             binding.addTag.setOnClickListener {
-                clickListener(tag, id!!)
+                clickListener(tag, message!!)
             }
 
         }

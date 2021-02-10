@@ -1,27 +1,27 @@
 package dev.ronnie.spendingcalculator.presentation.viewmodels
 
-import android.content.Context
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dev.ronnie.spendingcalculator.data.entities.Tag
-import dev.ronnie.spendingcalculator.utils.Event
 import dev.ronnie.spendingcalculator.data.repository.SmsRepository
+import dev.ronnie.spendingcalculator.domain.Message
+import dev.ronnie.spendingcalculator.utils.Event
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 
-class AddTagViewModel @ViewModelInject constructor(private val smsRepository: SmsRepository) : ViewModel() {
+class AddTagViewModel @ViewModelInject constructor(private val smsRepository: SmsRepository) :
+    ViewModel() {
 
-    private val _message = MutableLiveData<Event<String>>()
-    val message: LiveData<Event<String>>
-        get() = _message
+    private val _tagAdded = MutableLiveData<Event<String>>()
+    val tagAdded: LiveData<Event<String>>
+        get() = _tagAdded
     var tag: String? = null
-    lateinit var id: String
-    lateinit var context: Context
+    var message: Message? = null
 
     fun saveTags() {
 
@@ -33,15 +33,15 @@ class AddTagViewModel @ViewModelInject constructor(private val smsRepository: Sm
             val newRowId = smsRepository.insertTaggedMessageId(
                 Tag(
                     tag!!,
-                    id
+                    message!!.id, message!!
                 )
             )
             withContext(Dispatchers.Main) {
                 if (newRowId > -1) {
-                    _message.value =
+                    _tagAdded.value =
                         Event("Tag Added Successfully")
                 } else {
-                    _message.value =
+                    _tagAdded.value =
                         Event("Error Occurred")
                 }
             }

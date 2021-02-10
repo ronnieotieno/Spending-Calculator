@@ -62,6 +62,7 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
 
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //naviagtion
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"

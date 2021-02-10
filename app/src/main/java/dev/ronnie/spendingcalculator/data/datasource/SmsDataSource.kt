@@ -126,54 +126,5 @@ class SmsDataSource @Inject constructor(@ApplicationContext val context: Context
 
     }
 
-    suspend fun searchTags(tagString: String, taggedSmsDao: TaggedSmsDao): List<Message> {
-        val messageList = ArrayList<Message>()
-        val list = taggedSmsDao.getTags(tagString)
-        var cursor: Cursor?
-
-        Log.d("ListHere", list.toString())
-        for (i in list.indices) {
-
-            try {
-
-                val myMessage: Uri = Uri.parse("content://sms/")
-                val contentResolver = context.contentResolver
-                cursor = contentResolver.query(
-                    myMessage,
-                    arrayOf("_id", "address", "date", "body", "read"),
-                    "_id = ${list[i].id}",
-                    null,
-                    null
-                )
-
-
-                cursor?.moveToFirst()
-
-                val number: String =
-                    cursor?.getString(cursor.getColumnIndexOrThrow("address")).toString()
-
-                val body: String =
-                    cursor?.getString(cursor.getColumnIndexOrThrow("body")).toString()
-                val date: String =
-                    cursor?.getString(cursor.getColumnIndexOrThrow("date")).toString()
-                cursor?.close()
-
-                messageList.add(
-                    Message(
-                        number,
-                        body,
-                        Date(date.toLong()),
-                        list[i].id
-                    )
-                )
-
-
-            } catch (t: Throwable) {
-
-            }
-        }
-
-        return messageList
-    }
 
 }
